@@ -9,16 +9,6 @@ import { UserCredentials } from '../models/user.model';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-
-  @Input()
-  set pending(isPending: boolean) {
-    if (isPending) {
-      this.form.disable();
-    } else {
-      this.form.enable();
-    }
-  }
-
   @Input() errorMessage: string | null;
   @Output() submitted = new EventEmitter<UserCredentials>();
 
@@ -38,6 +28,7 @@ export class LoginFormComponent implements OnInit {
 
   get username() { return this.form.get('username'); }
   get password() { return this.form.get('password'); }
+  get keepLoggedIn() { return this.form.get('keepLoggedIn'); }
   matcher = new CommonErrorStateMatcher();
 
   constructor() {}
