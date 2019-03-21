@@ -6,7 +6,7 @@
     <mat-form-field color="accent">
       <input type="text" matInput [errorStateMatcher]="matcher" placeholder="Email or nickname" formControlName="username">
       <mat-error *ngIf="username.errors?.required">
-          Email or nickname
+          Email or nickname is required
       </mat-error>
     </mat-form-field>
   </p>
