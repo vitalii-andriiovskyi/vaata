@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SharedModuleModule } from './shared-module/shared-module.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
-    SharedModuleModule
+    SharedModuleModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
