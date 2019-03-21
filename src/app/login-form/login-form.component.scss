@@ -1,9 +1,15 @@
 
 form {
+  position: relative;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 62px auto 62px;
+  line-height: 1.4;
+ 
 }
 
+p {
+  margin-bottom: 25px;
+}
 .mat-form-field {
   width: 100%;
   min-width: 300px;
@@ -19,6 +25,8 @@ form {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-top: 36px;
+  margin-bottom: 30px;
   button {
     display: inline-block;
     width: 100%;
@@ -27,31 +35,77 @@ form {
     box-shadow: 0px 3px 23px rgba(254,60,114,0.45);
     background-color: #fb3b71;
     text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-weight: 600;
   }
 }
 
 h1 {
+  position: relative;
+  padding-bottom: 18px;
   font-size: 40px;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: #121212;
   text-align: center;
   & + p {
+    margin-bottom: 50px;
     font-size: 20px;
-    line-height: 28px;
+    // line-height: 28px;
     color: #717171;
     font-family: "Montserrat";
     font-weight: 500;
     text-align: center;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #f61d5e;
   }
 }
 
 .keep-logged-in {
   display: flex;
   justify-content: space-between;
+  font-size: 16px;
+  color:#121212;
+  font-family: "Montserrat";
+  font-weight: 500;
+  opacity: 0.5;
 }
 
 .sing-up {
   margin-top: 100px;
   text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+  form {
+    &:before, 
+    &:after {
+      content: '';
+      position: absolute;
+      width: 62px;
+      height: 62px;
+      top: -55px;
+      left: -62px;
+      background-image: url(../../assets/dots.png);
+    }
+  
+    &:after {
+      left: auto;
+      right: -62px;
+      top: auto;
+      bottom: -62px;
+      transform: scale(-1);
+    }
+  }
 }
