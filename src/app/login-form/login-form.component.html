@@ -1,0 +1,43 @@
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h1>Welcome back</h1>
+  <p>To keep connected with us, please login with your personal info</p>
+  <p>
+    <mat-form-field color="accent">
+      <input type="text" matInput [errorStateMatcher]="matcher" placeholder="Email or nickname" formControlName="username">
+      <mat-error *ngIf="username.errors?.required">
+          Email or nickname
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field color="accent">
+      <input type="password" matInput placeholder="Password" formControlName="password" 
+      [errorStateMatcher]="matcher" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-error *ngIf="password.errors?.required">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="(password.invalid && (password.dirty || password.touched)) && password.errors.minlength">
+        Password must be at least 4 characters long.
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  <p *ngIf="errorMessage" class="loginError">
+    {{ errorMessage }}
+  </p>
+
+  <p class="loginButtons">
+    <button type="submit" mat-flat-button color="accent">Login</button>
+  </p>
+
+  <div class="keep-logged-in">
+    <mat-checkbox formControlName="keepLoggedIn">Keep me loggedin</mat-checkbox>
+    <span>Forgot password?</span>
+  </div>
+
+</form>
+
+<p class="sing-up"><a routerLink="/">Don’t have an account? Sign Up</a></p>
